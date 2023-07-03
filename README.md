@@ -1,5 +1,5 @@
 # VERANUM_HOTELS_DJANGO
-Project Hotel&amp;restaurants servcies with Django
+Project Hotel &amp; restaurants servcies with Django
 
 
 
