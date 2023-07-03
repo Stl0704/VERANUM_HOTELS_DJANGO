@@ -43,7 +43,7 @@ Este repositorio contiene la estructura inicial de una página web para un hotel
    pip install -r requirements.txt
    ```
 
-4. Ejecuta las migraciones para crear la base de datos:
+4. Ejecuta las migraciones para crear la base de datos: (NO DISPONIBLE DE MOMENTO)
 
    ```bash
    python manage.py migrate
