@@ -23,4 +23,6 @@ urlpatterns = [
     path('', views.home, name = 'home'),
     path('registro/', views.pag_registro, name = 'registro'),
     path('ini_sesion/',views.ini_sesion,name='ini_sesion'),
+    path('reserva/',views.reserva,name='reserva'),
+    path('restaurante/',views.restaurante,name='restaurante'),
 ]

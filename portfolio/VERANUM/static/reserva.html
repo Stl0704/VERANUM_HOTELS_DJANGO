@@ -11,7 +11,7 @@
     <title>Reserva de Habitaciones</title>
     <style>
         body {
-            background-image: url("{% static 'DALL·E 2023-07-04 15.19.38.jpg' %}");
+            background-image: url("{% static 'DALL·E 2023-07-04 15.19.38.png' %}");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center top;
@@ -28,12 +28,12 @@
 
         @keyframes img_fondo {
             0% {
-                background-position: center top;
+                background-position: left center;
                 background-size: 100%;
             }
 
             100% {
-                background-position: center top;
+                background-position: left center;
                 background-size: 150%;
             }
         }
@@ -42,19 +42,19 @@
 
         /* Estilos adicionales para el formulario */
         .centered-form form {
-            background-color: rgba(76, 152, 106, 0.8);
+            background-color: rgba(0, 0, 0, 0.8);
             ;
             padding: 20px;
             border-radius: 10px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 80px) {
             body {
                 background-size: contain;
             }
 
             .centered-form form {
-                background-color: rgba(255, 255, 255, 0.95);
+                background-color: rgba(0, 0, 0, 0.95);
                 /* Ajusta la opacidad según tus preferencias */
             }
         }
@@ -95,21 +95,21 @@
             justify-content: center;
             align-items: center;
             height: 90vh;
-            max-width: 800px;
+            max-width: 900px;
             /* Ajusta el valor según tus necesidades */
-            padding: 0 20px;
+            padding: 0 10px;
             /* Ajusta el valor según tus necesidades */
             box-sizing: border-box;
-            margin-top: 20px;
+            margin-top: 10px;
             /* Añade un margen superior para separarlo de la barra de navegación */
-            width: 100%;
+            width: 90%;
             /* Ajusta el ancho para que se ajuste al contenedor */
             max-width: 400px;
         }
 
 
         input.form-control {
-            border-radius: 10px;
+            border-radius: 1px;
         }
 
         /* IMAGEN NAVBAR */
@@ -126,6 +126,8 @@
         .navbar {
             background-color: black;
         }
+
+
     </style>
 
     <script>
@@ -162,7 +164,7 @@
 
 </head>
 
-<body style="animation: img_fondo 20s ease 0s 1 normal forwards;">
+<body style="animation: img_fondo 15s ease 0s 1 normal forwards;">
 
 
     <!-- NAVBAR -->
@@ -183,12 +185,10 @@
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'reserva' %}"
-                        style="animation: myAnim 0.9s ease 0s 1 normal forwards;"> Reservas </a>
+                    <a class="nav-link" href="{% url 'reserva' %}" style="animation: myAnim 0.9s ease 0s 1 normal forwards;"> Reservas </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'restaurante' %}"
-                        style="animation: myAnim 0.9s ease 0s 1 normal forwards;">Restaurante</a>
+                    <a class="nav-link" href="{% url 'restaurante' %}" style="animation: myAnim 0.9s ease 0s 1 normal forwards;">Restaurante</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -209,16 +209,67 @@
 
 
 
+    <div class="container centered-form" style="animation: card_reserva 1s linear 0s 1 normal backwards;">
+        <form>
+            <div class="form-group">
+                <label for="nombre">
+                    <h5 style="color: rgb(255, 251, 137);">Nombre Representante:</h5>
+                </label>
+                <input type="text" class="form-control" id="nombre"
+                    style="background-color: rgb(46, 46, 36); color: rgb(255,251,137);" placeholder="Ingrese su nombre">
+            </div>
+            <div class="form-group">
+                <label for="fecha">
+                    <h5 style="color: rgb(255, 251, 137);">Fecha de ida:</h5>
+                </label>
+                <input type="date" class="form-control" id="fecha" name="fecha"
+                    style="background-color: rgb(46, 46, 36); color: rgb(184, 183, 182);">
+            </div>
 
-
-
-
-
-
-
-
-
-    
+            <div class="form-group">
+                <label for="retorno">
+                    <h5 style="color: rgb(255, 251, 137);">Fecha de retorno:</h5>
+                </label>
+                <input type="text" class="form-control" id="retorno" readonly
+                    style="background-color: rgb(46, 46, 36); color: rgb(255,251,137);">
+            </div>
+            <div class="form-group">
+                <label for="habitacion">
+                    <h5 style="color: rgb(255, 251, 137);">Habitación:</h5>
+                </label>
+                <select class="form-control" id="habitacion"
+                    style="background-color: rgb(46, 46, 36); color: rgb(255,251,137);">
+                    <option>Individual</option>
+                    <option>Doble</option>
+                    <option>Suite</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="servicios">Servicios adicionales:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="servicio1">
+                    <label class="form-check-label" for="servicio1">
+                        Wi-Fi ($60.000)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="servicio2">
+                    <label class="form-check-label" for="servicio2">
+                        Desayuno incluido($10.000 x Dia)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="servicio3">
+                    <label class="form-check-label" for="servicio3">
+                        Estacionamiento($25.0000 x Dia)
+                    </label>
+                </div>
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-primary btn-block"
+                style="background-color: rgb(46, 46, 36); color: rgb(255, 251, 137); border-color: white;">Reserva!</button>
+        </form>
+    </div>
 
 
     </div>
