@@ -3,7 +3,7 @@ Project Hotel &amp; restaurants servcies with Django
 
 
 
-# Primer archivo subido - Estructura de página del hotel con Django
+# Primer sprint - Estructura de página del hotel con Django
 
 Este repositorio contiene la estructura inicial de una página web para un hotel utilizando el framework Django en Python. El objetivo principal es proporcionar una base sólida para desarrollar y ampliar las funcionalidades de la página del hotel.
 
@@ -14,14 +14,14 @@ Este repositorio contiene la estructura inicial de una página web para un hotel
   - Archivos de migración para crear la base de datos y mantenerla actualizada.
   - Configuraciones de Django para la base de datos, rutas, plantillas, etc.
   - Archivos estáticos para estilos CSS, imágenes, etc.
-  - Plantillas HTML para las diferentes páginas de la página del hotel.
+  - Plantillas HTML para las diferentes páginas del hotel.
   - Vistas de Django para controlar la lógica y las interacciones con el modelo de datos.
 - Diseño centrado en la escalabilidad y extensibilidad, facilitando la incorporación de nuevas funcionalidades en el futuro.
 
 ## Requisitos previos
 
-- Python 3.x
-- Django (versión X.X.X)
+- Python 3.10
+- Django 
 
 ## Instalación
 
