@@ -8,14 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&display=swap" rel="stylesheet">
+    <!-- font primero -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <!-- font clasico -->
     <title>Reserva de Habitaciones</title>
     <style>
         body {
-            background-image: url("{% static 'DALL·E 2023-07-04 15.19.38.png' %}");
+            background-image: url("{% static 'DALL·E 2023-07-04 15.19.38.jpg' %}");
+            background-color: #000000;
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center top;
-            color: #FFFFFF;
+            color: #000000;
         }
 
         @media (max-width: 768px) {
@@ -39,6 +44,30 @@
         }
 
 
+        /* ESTILOS SECTION */
+
+        .section {
+            padding: 40px;
+            text-align: center;
+            background-color: black;
+            font-family: 'Dancing Script', cursive;
+
+        }
+
+
+        .section-title {
+            font-size: 80px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .section-description {
+            font-size: 16px;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+
 
         /* Estilos adicionales para el formulario */
         .centered-form form {
@@ -55,7 +84,6 @@
 
             .centered-form form {
                 background-color: rgba(0, 0, 0, 0.95);
-                /* Ajusta la opacidad según tus preferencias */
             }
         }
 
@@ -96,14 +124,10 @@
             align-items: center;
             height: 90vh;
             max-width: 900px;
-            /* Ajusta el valor según tus necesidades */
             padding: 0 10px;
-            /* Ajusta el valor según tus necesidades */
             box-sizing: border-box;
             margin-top: 10px;
-            /* Añade un margen superior para separarlo de la barra de navegación */
             width: 90%;
-            /* Ajusta el ancho para que se ajuste al contenedor */
             max-width: 400px;
         }
 
@@ -112,22 +136,38 @@
             border-radius: 1px;
         }
 
-        /* IMAGEN NAVBAR */
+        /* Estilos NAVBAR */
 
         .logo-image {
             width: 200px;
-            /* Ajusta el ancho de la imagen */
             height: auto;
-            /* La altura se ajustará proporcionalmente */
         }
 
 
-        /* Color NAVBAR */
         .navbar {
             background-color: black;
+            font-family: 'Alegreya Sans', sans-serif;
+
         }
 
 
+        /* ESTILOS FOOTER */
+
+        .text-sup-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-icons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .icons img {
+            margin: 0 10px;
+        }
     </style>
 
     <script>
@@ -185,53 +225,52 @@
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'reserva' %}" style="animation: myAnim 0.9s ease 0s 1 normal forwards;"> Reservas </a>
+                    <a class="nav-link" href="{% url 'reserva' %}"
+                        style="animation: myAnim 0.9s ease 0s 1 normal forwards;"> Reservas </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'restaurante' %}" style="animation: myAnim 0.9s ease 0s 1 normal forwards;">Restaurante</a>
+                    <a class="nav-link" href="{% url 'restaurante' %}"
+                        style="animation: myAnim 0.9s ease 0s 1 normal forwards;">Restaurante</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                        aria-expanded="false" style="animation: myAnim 0.9s ease 0s 1 normal forwards;">
-                        Dropdown link
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{% url 'ini_sesion' %}">Inicio de Sesion</a>
-                        <a class="dropdown-item" href="{% url 'registro' %}">Registrate</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'logsignin' %}"
+                        style="animation: myAnim 0.9s ease 0s 1 normal forwards;">Inicio / Registro</a>
+                </li>
                 </li>
             </ul>
         </div>
     </nav>
 
 
-
+    <section class="section">
+        <h1 class="section-title"> Reservas </h1>
+        <p class="section-description">Elige la fecha que mas te acomode, no olvides dejar tus datos de registro, o si
+            ya eres cliente no te preocupes, podras reservar sin volver a ingresar tus datos!</p>
+    </section>
 
 
     <div class="container centered-form" style="animation: card_reserva 1s linear 0s 1 normal backwards;">
         <form>
             <div class="form-group">
                 <label for="nombre">
-                    <h5 style="color: rgb(255, 251, 137);">Nombre Representante:</h5>
+                    <h5 style="color: rgb(255, 251, 137);">Nombre cliente:</h5>
                 </label>
                 <input type="text" class="form-control" id="nombre"
                     style="background-color: rgb(46, 46, 36); color: rgb(255,251,137);" placeholder="Ingrese su nombre">
             </div>
             <div class="form-group">
                 <label for="fecha">
-                    <h5 style="color: rgb(255, 251, 137);">Fecha de ida:</h5>
+                    <h5 style="color: rgb(255, 251, 137);">Fecha de Reserva:</h5>
                 </label>
                 <input type="date" class="form-control" id="fecha" name="fecha"
                     style="background-color: rgb(46, 46, 36); color: rgb(184, 183, 182);">
             </div>
-
             <div class="form-group">
-                <label for="retorno">
-                    <h5 style="color: rgb(255, 251, 137);">Fecha de retorno:</h5>
+                <label for="fecha">
+                    <h5 style="color: rgb(255, 251, 137);">Fecha final:</h5>
                 </label>
-                <input type="text" class="form-control" id="retorno" readonly
-                    style="background-color: rgb(46, 46, 36); color: rgb(255,251,137);">
+                <input type="date" class="form-control" id="fecha" name="fecha"
+                    style="background-color: rgb(46, 46, 36); color: rgb(184, 183, 182);">
             </div>
             <div class="form-group">
                 <label for="habitacion">
@@ -245,23 +284,29 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="servicios">Servicios adicionales:</label>
+                <label for="servicios" style="color: rgb(255, 251, 137);">Servicios adicionales:</label>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="servicio1">
-                    <label class="form-check-label" for="servicio1">
-                        Wi-Fi ($60.000)
+                    <label class="form-check-label" for="servicio1" style="color: rgb(255, 251, 137);">
+                        GYM ($20.000 x dia rservado)
                     </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="servicio2">
-                    <label class="form-check-label" for="servicio2">
-                        Desayuno incluido($10.000 x Dia)
+                    <label class="form-check-label" for="servicio2" style="color: rgb(255, 251, 137);">
+                        Acceso Psicinas ($10.000 x dia rservado)
                     </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="servicio3">
-                    <label class="form-check-label" for="servicio3">
-                        Estacionamiento($25.0000 x Dia)
+                    <label class="form-check-label" for="servicio3" style="color: rgb(255, 251, 137);">
+                        SPA y Masaje ($25.000 x dia rservado)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="servicio3">
+                    <label class="form-check-label" for="servicio4" style="color: rgb(255, 251, 137);">
+                        Acceso Canchas de Tenis ($20.000 x dia rservado)
                     </label>
                 </div>
             </div>
@@ -272,7 +317,37 @@
     </div>
 
 
-    </div>
+    <footer style="background-color: #28241686; border-color: black;">
+        <p style="font-size: 20px; font-weight: bold; color: rgb(255, 251, 137);" class="text-sup-footer">
+            <img src="https://cdn-icons-png.flaticon.com/128/1177/1177428.png" alt="" class="logo-img" width="50">
+            RESERVA SEGURA ✓✓✓
+        </p>
+        <hr>
+        <div class="footer-icons-container row">
+            <div class="icons">
+                <a HREF="https://es-la.facebook.com/">
+                    <img src="https://cdn-icons-png.flaticon.com/128/733/733547.png" width="30">
+                </a>
+                <a HREF="https://www.instagram.com/">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png" width="30">
+                </a>
+                <a HREF="https://cdn-icons-png.flaticon.com/128/179/179341.png" width="30">
+                    <img src="https://cdn-icons-png.flaticon.com/128/179/179341.png" width="30">
+                </a>
+            </div>
+            <br>
+            <p style="color: rgb(255, 251, 137);">Author: Miguel Montero y Mario Fica</p>
+            <br>
+            <br>
+            <p>
+                <a href="Correo contacto: pokemontgc@pokemon.pkm" style="color: rgb(255, 251, 137);">
+                    pokemontgc@pokemon.pkm
+                </a>
+            </p>
+        </div>
+    </footer>
+
+
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/js/bootstrap.min.js"></script>
 </body>

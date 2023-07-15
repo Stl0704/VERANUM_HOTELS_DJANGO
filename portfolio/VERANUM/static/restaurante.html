@@ -8,20 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&display=swap" rel="stylesheet">
+    <!-- font primero -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <!-- font clasico -->
     <title>Reserva de Habitaciones</title>
     <style>
         body {
             background: #171717 url("{% static 'DALL·E 2023-07-04 15.19.38.jpg' %}") right bottom/cover no-repeat fixed;
+            background-color: #000000;
         }
-        
+
         @media (max-width: 768px) {
             body {
                 background-size: 100000%;
-                /* Aumenta el tamaño de la imagen de fondo */
                 background-position: center center;
-                /* Centra la imagen de fondo */
                 animation: img_fondo 10s infinite;
-                /* Agrega una animación de zoom */
             }
         }
 
@@ -40,44 +42,6 @@
             }
         }
 
-
-
-        /* Estilos adicionales para el formulario */
-        .centered-form form {
-            background-color: rgba(0, 0, 0, 0.8);
-            ;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        @media (max-width: 80px) {
-            body {
-                background-size: contain;
-            }
-
-            .centered-form form {
-                background-color: rgba(0, 0, 0, 0.95);
-                /* Ajusta la opacidad según tus preferencias */
-            }
-        }
-
-        /* Card Reservas */
-
-        @keyframes card_reserva {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        /* Animacion del Formulario*/
-
         @keyframes myAnim {
             0% {
                 opacity: 1;
@@ -92,76 +56,77 @@
             }
         }
 
-        .centered-form {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 90vh;
-            max-width: 900px;
-            /* Ajusta el valor según tus necesidades */
-            padding: 0 10px;
-            /* Ajusta el valor según tus necesidades */
-            box-sizing: border-box;
-            margin-top: 10px;
-            /* Añade un margen superior para separarlo de la barra de navegación */
-            width: 90%;
-            /* Ajusta el ancho para que se ajuste al contenedor */
-            max-width: 400px;
+        /* ESTILOS SECTION */
+
+        .section {
+            padding: 40px;
+            text-align: center;
+            background-color: black;
+            font-family: 'Dancing Script', cursive;
+
         }
 
-        /* Dudosa Procedencia */
 
-        input.form-control {
-            border-radius: 0px;
+        .section-title {
+            font-size: 80px;
+            margin-bottom: 20px;
+            color: white;
         }
 
-        /* IMAGEN NAVBAR */
+        .section-description {
+            font-size: 16px;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+
+
+        /* Estilos NAVBAR */
 
         .logo-image {
             width: 200px;
-            /* Ajusta el ancho de la imagen */
             height: auto;
-            /* La altura se ajustará proporcionalmente */
         }
 
 
-        /* Color NAVBAR */
         .navbar {
             background-color: black;
+            font-family: 'Alegreya Sans', sans-serif;
+
+        }
+
+        /* Efecto card platillo*/
+
+        @keyframes custom-card {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ESTILOS FOOTER */
+
+        .text-sup-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-icons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .icons img {
+            margin: 0 10px;
         }
     </style>
-
-    <script>
-        window.addEventListener("DOMContentLoaded", function () {
-            var fechasReservadas = ["2023-07-10", "2023-07-15", "2023-07-20"];
-            var fechaInput = document.getElementById("fecha");
-            var retornoInput = document.getElementById("retorno");
-
-            fechaInput.addEventListener("input", function () {
-                var fechaSeleccionada = new Date(this.value);
-                var dosSemanasDespues = new Date(fechaSeleccionada);
-                dosSemanasDespues.setDate(dosSemanasDespues.getDate() + 14);
-
-                // Marcar las fechas ya reservadas aquí
-                var ultimaFechaReservada = null;
-                for (var i = 0; i < fechasReservadas.length; i++) {
-                    var fechaReservada = new Date(fechasReservadas[i]);
-                    if (
-                        fechaReservada >= fechaSeleccionada &&
-                        fechaReservada <= dosSemanasDespues
-                    ) {
-                        ultimaFechaReservada = fechasReservadas[i];
-                    }
-                }
-
-                // Mostrar la última fecha reservada en el campo de retorno
-                retornoInput.value = ultimaFechaReservada || "";
-            });
-        });
-    </script>
-
-
-
 
 </head>
 
@@ -193,16 +158,10 @@
                     <a class="nav-link" href="{% url 'restaurante' %}"
                         style="animation: myAnim 0.9s ease 0s 1 normal forwards;">Restaurante</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                        aria-expanded="false" style="animation: myAnim 0.9s ease 0s 1 normal forwards;">
-                        Dropdown link
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{% url 'ini_sesion' %}">Inicio de Sesion</a>
-                        <a class="dropdown-item" href="{% url 'registro' %}">Registrate</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'logsignin' %}"
+                        style="animation: myAnim 0.9s ease 0s 1 normal forwards;">Inicio / Registro</a>
+                </li>
                 </li>
             </ul>
         </div>
@@ -212,69 +171,80 @@
 
 
 
-    <div class="container centered-form" style="animation: card_reserva 1s linear 0s 1 normal backwards;">
-        <form>
-            <div class="form-group">
-                <label for="nombre">
-                    <h5 style="color: rgb(255, 251, 137);">Nombre Representante:</h5>
-                </label>
-                <input type="text" class="form-control" id="nombre"
-                    style="background-color: rgb(46, 46, 36); color: rgb(255,251,137);"
-                    placeholder="Ingrese su nombre completo.">
-            </div>
-            <div class="form-group">
-                <label for="fecha">
-                    <h5 style="color: rgb(255, 251, 137);">Fecha de ida:</h5>
-                </label>
-                <input type="date" class="form-control" id="fecha" name="fecha"
-                    style="background-color: rgb(46, 46, 36); color: rgb(184, 183, 182);">
-            </div>
+    <section class="section">
+        <h1 class="section-title"> Nuestro Menú: </h1>
+        <p class="section-description">Descubre los tratamientos y servicios que ofrecemos para tu bienestar.</p>
+    </section>
 
-            <div class="form-group">
-                <label for="retorno">
-                    <h5 style="color: rgb(255, 251, 137);">Fecha de retorno:</h5>
-                </label>
-                <input type="text" class="form-control" id="retorno" readonly
-                    style="background-color: rgb(46, 46, 36); color: rgb(255,251,137);">
-            </div>
-            <div class="form-group">
-                <label for="habitacion">
-                    <h5 style="color: rgb(255, 251, 137);">Habitación:</h5>
-                </label>
-                <select class="form-control" id="habitacion"
-                    style="background-color: rgb(46, 46, 36); color: rgb(255,251,137);">
-                    <option>Individual</option>
-                    <option>Doble</option>
-                    <option>Suite</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="servicios">Servicios adicionales:</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="servicio1">
-                    <label class="form-check-label" for="servicio1">
-                        Wi-Fi ($60.000)
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="servicio2">
-                    <label class="form-check-label" for="servicio2">
-                        Desayuno incluido($10.000 x Dia)
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="servicio3">
-                    <label class="form-check-label" for="servicio3">
-                        Estacionamiento($25.0000 x Dia)
-                    </label>
+
+
+
+    <!-- listado productos -->
+
+    <center>
+        {% for platillo in platillo %}
+        <div class="col-lg-3 col-md-6 col-sm-12 py-2 d-inline-block">
+            <div class="card custom-card"
+                style="background-color: rgba(0, 0, 0, 0.518); animation: myAnim 0.9s ease 0s 1 normal forwards;">
+                <img src="{{ platillo.imgn_ref }}" class="card-img-top" alt="..."
+                    style="width: 325px; height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h2 class="card-title" id="carta1" style="color:  rgb(255, 251, 137);">{{ platillo.nombreP }}</h2>
+                    <p class="card-text">
+                    <h5 style="color:  rgb(255, 251, 137);">Año: {{ platillo.descripcion }}</h5>
+                    <h5 style="color:  rgb(255, 251, 137);">Precio: {{ platillo.ingredientes }} CLP</h5>
+                    <h5 style="color:  rgb(255, 251, 137);">Precio: {{ platillo.precio }} CLP</h5>
+                    </p>
+                    <td>
+                        <button
+                            onclick="agregarCarro('{{ platillo.id }}', '{{ platillo.precio }}', '{{ platillo.nombreP }}')"
+                            class="btn btn-dark">Para Llevar!</button>
+                    </td>
+                    <br>
+                    <br>
+                    <td><button onclick="quitarCarta('{{ platillo.id }}', '{{ platillo.precio }}')"
+                            class="btn btn-dark">Servicio A la Habitacion</button></td>
                 </div>
             </div>
-            <hr>
-            <button type="submit" class="btn btn-primary btn-block"
-                style="background-color: rgb(46, 46, 36); color: rgb(255, 251, 137); border-color: white;">Reserva!</button>
-        </form>
-    </div>
-    </div>
+        </div>
+        {% endfor %}
+    </center>
+
+
+
+
+    <footer style="background-color: #28241686; border-color: black;">
+        <p style="font-size: 20px; font-weight: bold; color: rgb(255, 251, 137);" class="text-sup-footer">
+            <img src="https://cdn-icons-png.flaticon.com/128/1177/1177428.png" alt="" class="logo-img" width="50">
+            RESERVA SEGURA ✓✓✓
+        </p>
+        <hr>
+        <div class="footer-icons-container row">
+            <div class="icons">
+                <a HREF="https://es-la.facebook.com/">
+                    <img src="https://cdn-icons-png.flaticon.com/128/733/733547.png" width="30">
+                </a>
+                <a HREF="https://www.instagram.com/">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png" width="30">
+                </a>
+                <a HREF="https://cdn-icons-png.flaticon.com/128/179/179341.png" width="30">
+                    <img src="https://cdn-icons-png.flaticon.com/128/179/179341.png" width="30">
+                </a>
+            </div>
+            <br>
+            <p style="color: rgb(255, 251, 137);">Author: Miguel Montero y Mario Fica</p>
+            <br>
+            <br>
+            <p>
+                <a href="Correo contacto: pokemontgc@pokemon.pkm" style="color: rgb(255, 251, 137);">
+                    pokemontgc@pokemon.pkm
+                </a>
+            </p>
+        </div>
+    </footer>
+
+
+
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/js/bootstrap.min.js"></script>
 </body>
