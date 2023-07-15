@@ -61,11 +61,8 @@ Este repositorio contiene la estructura inicial de una página web para un hotel
    http://localhost:8000/
    ```
 
-¡Ahora estás listo para comenzar a desarrollar y ampliar la página del hotel utilizando Django!
+## Ahora puedes ver el proyecto desde tu servidor!
 
-## Contribución
-
-Si deseas contribuir a este proyecto, siéntete libre de abrir un "pull request" y compartir tus mejoras.
 
 ## Licencia
 
