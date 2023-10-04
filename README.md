@@ -3,7 +3,7 @@ Project Hotel &amp; restaurants servcies with Django
 
 
 
-# Primer sprint - Estructura de página del hotel con Django
+# Primer sprint -  Página del hotel Creada con Framework Django, Primeras integraciones.
 
 Este repositorio contiene la estructura inicial de una página web para un hotel utilizando el framework Django en Python. El objetivo principal es proporcionar una base sólida para desarrollar y ampliar las funcionalidades de la página del hotel.
 
